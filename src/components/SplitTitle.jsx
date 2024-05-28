@@ -1,9 +1,9 @@
 function SplitTitle() {
   return (
-    <div className="  text-neutralVeryLightGrayishCyan">
-      <span>SPLI</span>
+    <div className="font-fontFamily-sans text-center text-xl font-bold text-neutralVeryDarkCyan">
+      <span className="tracking-[4px]">SPLIT</span>
       <br />
-      <span>TTER</span>
+      <span className="tracking-[6px]">TTER</span>
     </div>
   );
 }
