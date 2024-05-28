@@ -1,5 +1,11 @@
+import Body from "./Body";
+
 function App() {
-  return <div>Project Set Up and Ready to Go</div>;
+  return (
+    <main>
+      <Body />
+    </main>
+  );
 }
 
 export default App;

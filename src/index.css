@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans font-bold;
+  font-family: "Space Mono", sans-serif;
 }
