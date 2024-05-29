@@ -1,5 +1,3 @@
-
-
 function InputBill(props) {
   return (
     <label className="relative">
@@ -7,10 +5,10 @@ function InputBill(props) {
         <img src={props.iconName} alt="" />
       </span>
       <input
-        className="w-full rounded-md bg-neutralVeryLightGrayishCyan px-5 py-2 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
+        className="w-full cursor-pointer rounded-md bg-neutralVeryLightGrayishCyan px-5 py-3 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
         type="number"
         name={props.inputName}
-        placeholder="0"
+        placeholder={props.placeholder || "0"}
       />
     </label>
   );
