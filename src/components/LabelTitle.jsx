@@ -1,5 +1,9 @@
 function LabelTitle(props) {
-  return <h2>{props.h2Title}</h2>;
+  return (
+    <label htmlFor={props.labelName} className="block">
+      {props.h2Title}
+    </label>
+  );
 }
 
 export default LabelTitle;

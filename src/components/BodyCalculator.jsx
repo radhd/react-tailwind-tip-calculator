@@ -4,8 +4,10 @@ import InputBill from "./InputBill";
 function BodyCalculator() {
   return (
     <div>
-      <LabelTitle h2Title={"Bill"} />
-      <InputBill />
+      <div className="px-12">
+        <LabelTitle h2Title={"Bill"} labelName={"inputBill"} />
+        <InputBill inputName={"inputBill"} />
+      </div>
     </div>
   );
 }
