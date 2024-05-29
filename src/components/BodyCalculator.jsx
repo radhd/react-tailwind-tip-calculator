@@ -1,10 +1,10 @@
-import SectionTitle from "./SectionTitle";
+import LabelTitle from "./LabelTitle";
 import InputBill from "./InputBill";
 
 function BodyCalculator() {
   return (
     <div>
-      <SectionTitle h2Title={"Bill"} />
+      <LabelTitle h2Title={"Bill"} />
       <InputBill />
     </div>
   );
