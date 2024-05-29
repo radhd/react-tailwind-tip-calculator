@@ -2,15 +2,18 @@ import TipButton from "../TipButton";
 
 function CalculationBody() {
   return (
-    <div className="space-y-5 rounded-2xl bg-neutralVeryDarkCyan p-6">
-      <div className="flex items-center justify-between">
-        <PerPerson>Tip Amount</PerPerson>
-        <CalculatedNumber>4.27</CalculatedNumber>
+    <div className="mt-8 flex flex-col justify-between space-y-5 rounded-2xl bg-neutralVeryDarkCyan p-6 lg:mt-0 lg:p-10">
+      <div className="space-y-5 lg:space-y-10">
+        <div className="flex items-center justify-between">
+          <PerPerson>Tip Amount</PerPerson>
+          <CalculatedNumber>4.27</CalculatedNumber>
+        </div>
+        <div className="flex items-center justify-between">
+          <PerPerson>Total</PerPerson>
+          <CalculatedNumber>32.79</CalculatedNumber>
+        </div>
       </div>
-      <div className="flex items-center justify-between">
-        <PerPerson>Total</PerPerson>
-        <CalculatedNumber>32.79</CalculatedNumber>
-      </div>
+
       <TipButton className={"w-full bg-primaryCyan px-0 py-0 text-xl"}>
         RESET
       </TipButton>
@@ -28,7 +31,9 @@ function PerPerson({ children }) {
 }
 
 function CalculatedNumber({ children }) {
-  return <span className="text-3xl text-primaryCyan">${children}</span>;
+  return (
+    <span className="text-3xl text-primaryCyan lg:text-5xl">${children}</span>
+  );
 }
 
 export default CalculationBody;
