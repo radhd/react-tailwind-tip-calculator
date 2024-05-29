@@ -1,8 +1,11 @@
+// Images
+import iconDollar from "../assets/icon-dollar.svg";
+import iconPerson from "../assets/icon-person.svg";
+// Components
 import LabelTitle from "./LabelTitle";
 import InputBill from "./InputBill";
 import TipButton from "./TipButton";
-import iconDollar from "../assets/icon-dollar.svg";
-import iconPerson from "../assets/icon-person.svg";
+import CalculationBody from "./CalculationBodyComponents/CalculationBody";
 
 function BodyCalculator() {
   return (
@@ -19,14 +22,13 @@ function BodyCalculator() {
           <TipButton className={`bg-primaryCyan text-black`}>15%</TipButton>
           <TipButton>25%</TipButton>
           <TipButton>50%</TipButton>
-          <TipButton
-            className={`bg-neutralLightGrayishCyan text-right text-primaryCyan`}
-          >
+          <TipButton className={`bg-[#F3F9FA] text-right text-[#547878]`}>
             Custom
           </TipButton>
         </div>
         <LabelTitle h2Title={"Number of People"} />
         <InputBill iconName={iconPerson} />
+        <CalculationBody />
       </div>
     </div>
   );
