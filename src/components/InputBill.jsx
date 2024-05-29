@@ -7,7 +7,7 @@ function InputBill(props) {
         <img src={iconDollar} alt="" />
       </span>
       <input
-        className="rounded-md bg-neutralVeryLightGrayishCyan px-5 py-2 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
+        className="w-full rounded-md bg-neutralVeryLightGrayishCyan px-5 py-2 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
         type="number"
         name={props.inputName}
         placeholder="0"
