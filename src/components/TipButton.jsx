@@ -1,19 +1,7 @@
-function TipButton({
-  children,
-  className = "bg-neutralVeryDarkCyan text-white",
-  onClick,
-}) {
-  // const [isToggled, setIsToggled] = useState(false);
-
-  // const toggleButton = () => {
-  //   setIsToggled(!isToggled);
-  // };
-
-  // ${isToggled ? `bg-primaryCyan text-black` : className}
-
+function TipButton({ children, onClick, className }) {
   return (
     <button
-      className={`rounded-md px-4 py-2 text-2xl lg:transition-all lg:hover:bg-[#9FE8DF] lg:hover:text-[#00474B]  ${className}`}
+      className={`rounded-md bg-neutralVeryDarkCyan px-4 py-2 text-2xl text-white lg:transition-all  lg:hover:bg-[#9FE8DF] lg:hover:text-[#00474B] ${className}`}
       onClick={onClick}
     >
       {children}
