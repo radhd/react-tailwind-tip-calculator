@@ -5,7 +5,7 @@ import BodyCalculator from "./components/BodyCalculator";
 
 function MainBody() {
   return (
-    <div className="font-fontFamily bg-neutralLightGrayishCyan font-bold text-neutralVeryDarkCyan">
+    <div className="space-y-10 bg-neutralLightGrayishCyan font-fontFamily font-bold text-neutralVeryDarkCyan">
       <SplitTitle />
       <BodyCalculator />
     </div>
