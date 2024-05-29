@@ -14,7 +14,11 @@ function CalculationBody() {
         </div>
       </div>
 
-      <TipButton className={"w-full bg-primaryCyan px-0 py-0 text-xl"}>
+      <TipButton
+        className={
+          "w-full bg-primaryCyan px-0 py-0 text-xl !text-[#00474B] hover:bg-[#9FE8DF] "
+        }
+      >
         RESET
       </TipButton>
     </div>
