@@ -1,10 +1,10 @@
-import iconDollar from "../assets/icon-dollar.svg";
+
 
 function InputBill(props) {
   return (
     <label className="relative">
       <span className="absolute left-5 top-1">
-        <img src={iconDollar} alt="" />
+        <img src={props.iconName} alt="" />
       </span>
       <input
         className="w-full rounded-md bg-neutralVeryLightGrayishCyan px-5 py-2 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
