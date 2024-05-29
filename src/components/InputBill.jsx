@@ -6,7 +6,7 @@ function InputBill(props) {
       </span>
       <input
         className="w-full cursor-pointer rounded-md bg-neutralVeryLightGrayishCyan px-5 py-3 text-right focus:outline-none focus:ring-1 focus:ring-primaryCyan"
-        type="number"
+        type="numeric"
         name={props.inputName}
         placeholder={props.placeholder || "0"}
       />
