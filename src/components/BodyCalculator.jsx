@@ -27,7 +27,7 @@ function BodyCalculator() {
       setActiveButton(type);
     }
   };
-  // We can create function which take input of the bill billValue and calculate 5% of toggled button and we can send this data to the Tip amount <CalculationBody value={billValue} /> from here
+  // We can create function which take input of the bill billValue and calculate 5% of toggled button and we can send this data to the Tip amount <CalculationBody value={billValue} /> from here make changes
 
   function tipCalculator(value, tip) {
     return (value * tip) / 100;
