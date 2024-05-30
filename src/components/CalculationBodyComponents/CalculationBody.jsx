@@ -6,11 +6,11 @@ function CalculationBody(props) {
       <div className="space-y-5 lg:space-y-10">
         <div className="flex items-center justify-between">
           <PerPerson>Tip Amount</PerPerson>
-          <CalculatedNumber>{props.value}</CalculatedNumber>
+          <CalculatedNumber>{props.billValue}</CalculatedNumber>
         </div>
         <div className="flex items-center justify-between">
           <PerPerson>Total</PerPerson>
-          <CalculatedNumber>32.79</CalculatedNumber>
+          <CalculatedNumber>{props.totalValue}</CalculatedNumber>
         </div>
       </div>
 

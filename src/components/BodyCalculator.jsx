@@ -1,5 +1,5 @@
 // Function imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Images
 import iconDollar from "../assets/icon-dollar.svg";
 import iconPerson from "../assets/icon-person.svg";
@@ -11,26 +11,22 @@ import CalculationBody from "./CalculationBodyComponents/CalculationBody";
 
 function BodyCalculator() {
   const [activeButton, setActiveButton] = useState(null);
-
   const [billValue, setBillValue] = useState(0);
+  const [totalValue, setTotalValue] = useState(0);
 
   const onChange = (event) => {
     const value = event.target.value;
-    const tipValue = tipCalculator(value, activeButton);
-    setBillValue(tipValue);
+    setTotalValue(value);
   };
 
-  const handleClick = (type) => {
-    if (activeButton === type) {
-      setActiveButton(null);
-    } else {
-      setActiveButton(type);
-    }
+  const handleClick = (type, totalValue) => {
+    activeButton === type ? setActiveButton(null) : setActiveButton(type);
+    const tip = tipCalculator(totalValue, type);
+    setBillValue(tip);
   };
-  // We can create function which take input of the bill billValue and calculate 5% of toggled button and we can send this data to the Tip amount <CalculationBody value={billValue} /> from here make changes
 
-  function tipCalculator(value, tip) {
-    return (value * tip) / 100;
+  function tipCalculator(value, type) {
+    return (value * type) / 100;
   }
 
   return (
@@ -50,31 +46,31 @@ function BodyCalculator() {
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
               <TipButton
                 className={`${activeButton === 5 ? "bg-primaryCyan text-black" : ""}`}
-                onClick={() => handleClick(5)}
+                onClick={() => handleClick(5, totalValue)}
               >
                 5%
               </TipButton>
               <TipButton
                 className={`${activeButton === 10 ? "bg-primaryCyan text-black" : ""}`}
-                onClick={() => handleClick(10)}
+                onClick={() => handleClick(10, totalValue)}
               >
                 10%
               </TipButton>
               <TipButton
                 className={`${activeButton === 15 ? "bg-primaryCyan text-black" : ""}`}
-                onClick={() => handleClick(15)}
+                onClick={() => handleClick(15, totalValue)}
               >
                 15%
               </TipButton>
               <TipButton
                 className={`${activeButton === 25 ? "bg-primaryCyan text-black" : ""}`}
-                onClick={() => handleClick(25)}
+                onClick={() => handleClick(25, totalValue)}
               >
                 25%
               </TipButton>
               <TipButton
                 className={`${activeButton === 50 ? "bg-primaryCyan text-black" : ""}`}
-                onClick={() => handleClick(50)}
+                onClick={() => handleClick(50, totalValue)}
               >
                 50%
               </TipButton>
@@ -86,7 +82,7 @@ function BodyCalculator() {
             <InputBill iconName={iconPerson} />
           </div>
         </div>
-        <CalculationBody value={billValue} />
+        <CalculationBody billValue={billValue} totalValue={totalValue} />
       </div>
     </div>
   );
