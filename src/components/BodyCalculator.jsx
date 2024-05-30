@@ -14,9 +14,11 @@ function BodyCalculator() {
   const [billValue, setBillValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
 
-  const onChange = (event) => {
+  const onChange = (event, activeButton) => {
     const value = event.target.value;
     setTotalValue(value);
+    const tip = tipCalculator(value, activeButton);
+    setBillValue(tip);
   };
 
   const handleClick = (type, totalValue) => {
@@ -38,7 +40,7 @@ function BodyCalculator() {
             <InputBill
               inputName={"inputBill"}
               iconName={iconDollar}
-              onChange={() => onChange(event)}
+              onChange={() => onChange(event, activeButton)}
             />
           </div>
           <div className="space-y-4">
