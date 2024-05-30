@@ -14,24 +14,26 @@ function BodyCalculator() {
   const [billValue, setBillValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
   const [peopleValue, setPeopleValue] = useState(0);
+  const [originalTotalValue, setOriginalTotalValue] = useState(0);
 
-  const onChangePeople = (event, totalValue) => {
+  const onChangePeople = (event) => {
     const people = parseFloat(event.target.value);
     setPeopleValue(people);
-    // const peopleCalculations = peopleCalculator(totalValue, people);
-    // setTotalValue(peopleCalculations);
-    // if (isNaN(people) || people == 0) {
-    //   setTotalValue(totalValue);
-    // } else {
-    //   setTotalValue(totalValue / people);
-    // }
+
+    if (!isNaN(people) && people !== 0 && originalTotalValue !== 0) {
+      const updatedTotalValue = originalTotalValue / people;
+      setTotalValue(updatedTotalValue.toFixed(2));
+    } else {
+      setPeopleValue(1);
+      setTotalValue(originalTotalValue);
+    }
+    console.log(totalValue);
   };
 
   // Bill and Select Tip %
   const onChange = (event, activeButton, peopleValue) => {
     const value = parseFloat(event.target.value);
-    console.log(value);
-    console.log("People Value: ", peopleValue);
+    setOriginalTotalValue(value);
     const tip = tipCalculator(value, activeButton);
 
     if (isNaN(value)) {
@@ -63,10 +65,6 @@ function BodyCalculator() {
 
   function tipCalculator(value, type) {
     return (value * type) / 100;
-  }
-
-  function peopleCalculator(value, people) {
-    return value / people;
   }
 
   return (
@@ -121,7 +119,7 @@ function BodyCalculator() {
             <LabelTitle h2Title={"Number of People"} />
             <InputBill
               iconName={iconPerson}
-              onChange={() => onChangePeople(event, totalValue)}
+              onChange={() => onChangePeople(event)}
             />
           </div>
         </div>
