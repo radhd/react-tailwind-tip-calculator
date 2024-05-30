@@ -13,18 +13,35 @@ function BodyCalculator() {
   const [activeButton, setActiveButton] = useState(null);
   const [billValue, setBillValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
+  const [people, setPeople] = useState(1);
+
+  const onChangePeople = (event) => {
+    const value = parseFloat(event.target.value);
+
+    if (!isNaN(value) && value !== 0) {
+      console.log(value);
+      setPeople(value);
+      const newBillValue = totalValue / value;
+      setBillValue(newBillValue);
+    }
+  };
 
   const onChange = (event, activeButton) => {
-    const value = event.target.value;
+    const value = parseFloat(event.target.value);
     setTotalValue(value);
     const tip = tipCalculator(value, activeButton);
     setBillValue(tip);
   };
 
   const handleClick = (type, totalValue) => {
-    activeButton === type ? setActiveButton(null) : setActiveButton(type);
-    const tip = tipCalculator(totalValue, type);
-    setBillValue(tip);
+    if (activeButton === type) {
+      setActiveButton(null);
+      setBillValue(0);
+    } else {
+      setActiveButton(type);
+      const tip = tipCalculator(totalValue, type);
+      setBillValue(tip);
+    }
   };
 
   function tipCalculator(value, type) {
@@ -81,10 +98,14 @@ function BodyCalculator() {
           </div>
           <div className="space-y-4">
             <LabelTitle h2Title={"Number of People"} />
-            <InputBill iconName={iconPerson} />
+            <InputBill iconName={iconPerson} onChange={onChangePeople} />
           </div>
         </div>
-        <CalculationBody billValue={billValue} totalValue={totalValue} />
+        <CalculationBody
+          billValue={billValue}
+          totalValue={totalValue}
+          // onClick={}
+        />
       </div>
     </div>
   );

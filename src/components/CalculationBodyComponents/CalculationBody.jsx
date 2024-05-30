@@ -17,7 +17,7 @@ function CalculationBody(props) {
       <TipButton
         className={
           "w-full bg-primaryCyan px-0 py-0 text-xl !text-[#00474B] hover:bg-[#9FE8DF] "
-        }
+        } onClick={props.onClick}
       >
         RESET
       </TipButton>
