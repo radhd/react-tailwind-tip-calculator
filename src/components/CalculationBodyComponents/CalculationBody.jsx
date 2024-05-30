@@ -1,12 +1,12 @@
 import TipButton from "../TipButton";
 
-function CalculationBody() {
+function CalculationBody(props) {
   return (
     <div className="mt-8 flex flex-col justify-between space-y-5 rounded-2xl bg-neutralVeryDarkCyan p-6 lg:mt-0 lg:p-10">
       <div className="space-y-5 lg:space-y-10">
         <div className="flex items-center justify-between">
           <PerPerson>Tip Amount</PerPerson>
-          <CalculatedNumber>4.27</CalculatedNumber>
+          <CalculatedNumber>{props.value}</CalculatedNumber>
         </div>
         <div className="flex items-center justify-between">
           <PerPerson>Total</PerPerson>
