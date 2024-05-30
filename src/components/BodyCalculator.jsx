@@ -13,26 +13,43 @@ function BodyCalculator() {
   const [activeButton, setActiveButton] = useState(null);
   const [billValue, setBillValue] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
-  const [people, setPeople] = useState(1);
+  const [peopleValue, setPeopleValue] = useState(0);
 
-  const onChangePeople = (event) => {
+  const onChangePeople = (event, totalValue) => {
+    const people = parseFloat(event.target.value);
+    setPeopleValue(people);
+    // const peopleCalculations = peopleCalculator(totalValue, people);
+    // setTotalValue(peopleCalculations);
+    // if (isNaN(people) || people == 0) {
+    //   setTotalValue(totalValue);
+    // } else {
+    //   setTotalValue(totalValue / people);
+    // }
+  };
+
+  // Bill and Select Tip %
+  const onChange = (event, activeButton, peopleValue) => {
     const value = parseFloat(event.target.value);
+    console.log(value);
+    console.log("People Value: ", peopleValue);
+    const tip = tipCalculator(value, activeButton);
 
-    if (!isNaN(value) && value !== 0) {
-      console.log(value);
-      setPeople(value);
-      const newBillValue = totalValue / value;
-      setBillValue(newBillValue);
+    if (isNaN(value)) {
+      setTotalValue(0);
+      setBillValue(0);
+    } else {
+      setTotalValue(value);
+      setBillValue(tip);
+    }
+
+    if (isNaN(peopleValue) || peopleValue === 0) {
+      setTotalValue(value);
+    } else {
+      setTotalValue(value / peopleValue);
     }
   };
 
-  const onChange = (event, activeButton) => {
-    const value = parseFloat(event.target.value);
-    setTotalValue(value);
-    const tip = tipCalculator(value, activeButton);
-    setBillValue(tip);
-  };
-
+  // Select Tip and Bill
   const handleClick = (type, totalValue) => {
     if (activeButton === type) {
       setActiveButton(null);
@@ -48,6 +65,10 @@ function BodyCalculator() {
     return (value * type) / 100;
   }
 
+  function peopleCalculator(value, people) {
+    return value / people;
+  }
+
   return (
     <div className="mx-auto  my-8 max-w-[920px] rounded-t-3xl bg-white lg:rounded-3xl">
       <div className=" px-12 py-8 lg:grid lg:grid-cols-2 lg:gap-12">
@@ -57,7 +78,7 @@ function BodyCalculator() {
             <InputBill
               inputName={"inputBill"}
               iconName={iconDollar}
-              onChange={() => onChange(event, activeButton)}
+              onChange={() => onChange(event, activeButton, peopleValue)}
             />
           </div>
           <div className="space-y-4">
@@ -98,7 +119,10 @@ function BodyCalculator() {
           </div>
           <div className="space-y-4">
             <LabelTitle h2Title={"Number of People"} />
-            <InputBill iconName={iconPerson} onChange={onChangePeople} />
+            <InputBill
+              iconName={iconPerson}
+              onChange={() => onChangePeople(event, totalValue)}
+            />
           </div>
         </div>
         <CalculationBody
