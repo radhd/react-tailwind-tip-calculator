@@ -72,8 +72,15 @@ function BodyCalculator() {
     // Set Bill Value to tipValue
     setBillValue(tipValue.toFixed(2));
 
-    // Reset ActiveButton toggle
     setActiveButton(0);
+  };
+
+  const clickResetButton = () => {
+    setActiveButton(0);
+    setBillValue(0);
+    setTotalValue(0);
+    setPeopleValue(0);
+    setOriginalTotalValue(0);
   };
 
   function tipCalculator(value, type) {
@@ -140,7 +147,11 @@ function BodyCalculator() {
             />
           </div>
         </div>
-        <CalculationBody billValue={billValue} totalValue={totalValue} />
+        <CalculationBody
+          billValue={billValue}
+          totalValue={totalValue + parseFloat(billValue)}
+          onClick={() => clickResetButton()}
+        />
       </div>
     </div>
   );

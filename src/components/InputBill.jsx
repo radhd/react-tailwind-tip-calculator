@@ -1,7 +1,4 @@
-import { useState } from "react";
-
 function InputBill(props) {
-
   return (
     <label className="relative">
       <span className="absolute left-5 top-1">

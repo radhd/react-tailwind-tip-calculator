@@ -1,6 +1,7 @@
 import TipButton from "../TipButton";
 
 function CalculationBody(props) {
+
   return (
     <div className="mt-8 flex flex-col justify-between space-y-5 rounded-2xl bg-neutralVeryDarkCyan p-6 lg:mt-0 lg:p-10">
       <div className="space-y-5 lg:space-y-10">
@@ -17,7 +18,8 @@ function CalculationBody(props) {
       <TipButton
         className={
           "w-full bg-primaryCyan px-0 py-0 text-xl !text-[#00474B] hover:bg-[#9FE8DF] "
-        } onClick={props.onClick}
+        }
+        onClick={props.onClick}
       >
         RESET
       </TipButton>
