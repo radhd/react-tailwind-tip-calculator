@@ -59,7 +59,7 @@ function BodyCalculator() {
     } else {
       setActiveButton(type);
       const tip = tipCalculator(totalValue, type);
-      setBillValue(tip);
+      setBillValue(tip.toFixed(2));
     }
   };
 
@@ -123,11 +123,7 @@ function BodyCalculator() {
             />
           </div>
         </div>
-        <CalculationBody
-          billValue={billValue}
-          totalValue={totalValue}
-          // onClick={}
-        />
+        <CalculationBody billValue={billValue} totalValue={totalValue} />
       </div>
     </div>
   );
