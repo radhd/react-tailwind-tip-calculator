@@ -15,6 +15,7 @@ function BodyCalculator() {
   const [totalValue, setTotalValue] = useState(0);
   const [peopleValue, setPeopleValue] = useState(0);
   const [originalTotalValue, setOriginalTotalValue] = useState(0);
+  const [customValue, setCustomValue] = useState(0);
 
   const onChangePeople = (event) => {
     const people = parseFloat(event.target.value);
@@ -27,7 +28,6 @@ function BodyCalculator() {
       setPeopleValue(1);
       setTotalValue(originalTotalValue);
     }
-    console.log(totalValue);
   };
 
   // Bill and Select Tip %
@@ -61,6 +61,19 @@ function BodyCalculator() {
       const tip = tipCalculator(totalValue, type);
       setBillValue(tip.toFixed(2));
     }
+  };
+
+  // Input custom on change
+  const onChangeCustom = (event) => {
+    const percentageValue = parseFloat(event.target.value / 100);
+    const tipValue = percentageValue * originalTotalValue;
+    setCustomValue(tipValue);
+
+    // Set Bill Value to tipValue
+    setBillValue(tipValue.toFixed(2));
+
+    // Reset ActiveButton toggle
+    setActiveButton(0);
   };
 
   function tipCalculator(value, type) {
@@ -112,7 +125,11 @@ function BodyCalculator() {
               >
                 50%
               </TipButton>
-              <InputBill placeholder={"Custom"} />
+              {/* CUSTOM INPUT FOR PERCENTAGES */}
+              <InputBill
+                placeholder={"Custom"}
+                onChange={() => onChangeCustom(event)}
+              />
             </div>
           </div>
           <div className="space-y-4">

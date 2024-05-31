@@ -1,11 +1,6 @@
 import { useState } from "react";
 
 function InputBill(props) {
-  // const [value, setValue] = useState("");
-
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
 
   return (
     <label className="relative">
